@@ -17,32 +17,32 @@ public class Elementos_Básicos extends JFrame {
         suma = new JButton("+");
         suma.setBounds(20,20,50,50);
         suma.setBackground(new Color(0,0,0));
-        suma.setFont(new Font("Andale Mono", 1, 14));
+        suma.setFont(new Font("Andale Mono", 1, 18));
         suma.setForeground(new Color(255,255,255));
         //suma.addActionListener(this);
         add(suma);
 
         resta = new JButton("-");
-        resta.setBounds(10,150,50,30);
-        resta.setBackground(new Color(255,255,255));
-        resta.setFont(new Font("Andale Mono", 1, 14));
-        resta.setForeground(new Color(255,0,0));
+        resta.setBounds(20,70,50,50);
+        resta.setBackground(new Color(0,0,0));
+        resta.setFont(new Font("Andale Mono", 1, 18));
+        resta.setForeground(new Color(255,255,255));
         //suma.addActionListener(this);
         add(resta);
 
         multiplicación = new JButton("*");
-        multiplicación.setBounds(10,200,50,30);
-        multiplicación.setBackground(new Color(255,255,255));
-        multiplicación.setFont(new Font("Andale Mono", 1, 14));
-        multiplicación.setForeground(new Color(255,0,0));
+        multiplicación.setBounds(20,120,50,50);
+        multiplicación.setBackground(new Color(0,0,0));
+        multiplicación.setFont(new Font("Andale Mono", 1, 18));
+        multiplicación.setForeground(new Color(255,255,255));
         //suma.addActionListener(this);
         add(multiplicación);
 
         división = new JButton("/");
-        división.setBounds(20,280,100,30);
-        división.setBackground(new Color(255,255,255));
-        división.setFont(new Font("Andale Mono", 1, 14));
-        división.setForeground(new Color(255,0,0));
+        división.setBounds(20,170,50,50);
+        división.setBackground(new Color(0,0,0));
+        división.setFont(new Font("Andale Mono", 1, 18));
+        división.setForeground(new Color(255,255,255));
         //suma.addActionListener(this);
         add(división);
 
