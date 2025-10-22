@@ -9,6 +9,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
     //private JLabel ;
     private JTextField entradas;
 
+    String string_de_entrada = "";
     int num1 = 0;
     int num2 = 0;
     int result = 0;
@@ -63,7 +64,8 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
 
     public void actionPerformed( ActionEvent evento){
         if (evento.getSource() == button_suma) {
-            if (entradas.equals("")){
+            string_de_entrada = entradas.getText().trim();
+            if (string_de_entrada.equals("")){
                 JOptionPane.showMessageDialog(null, "Debes ingresar un número");
             }   else {
                 num1 = Integer.parseInt(entradas.getText().trim());
