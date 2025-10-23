@@ -4,7 +4,8 @@ import java.awt.event.*;
 
 public class Elementos_Básicos extends JFrame implements ActionListener{
 
-    private JButton button_suma, button_resta, button_multiplicación, button_división, button_reiniciar;
+    private JButton button_suma, button_resta, button_multiplicación, button_división, button_reiniciar, button_igual,
+            button_salir, button_creador;
     private JLabel valoresLabel, resultadoLabel;
     private JTextField entradajTextField, resultadojTextField;
 
@@ -85,22 +86,35 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         //suma.addActionListener(this);
         add(button_división);
 
-
+        button_igual = new JButton("=");
+        button_igual.setBounds(20,240,50,50);
+        button_igual.setBackground(new Color(0,0,0));
+        button_igual.setFont(new Font("Andale Mono", 1, 20));
+        button_igual.setForeground(new Color(255,255,255));
+        button_igual.addActionListener(this);
+        add(button_igual);
     }
 
     public void actionPerformed( ActionEvent evento){
 
+        string_de_entrada = entradajTextField.getText().trim();
+
         if (evento.getSource() == button_suma) {
-            string_de_entrada = entradajTextField.getText().trim();
             if (string_de_entrada.equals("")){
                 JOptionPane.showMessageDialog(null, "Debes ingresar un número");
             }   else {
                 num1 = Integer.parseInt(entradajTextField.getText().trim());
                 entradajTextField.setText("");
-                //num2 = Integer.parseInt(entradajTextField.getText().trim());
+
                 //resultadojTextField.setText(String.valueOf(num1+num2));
 
             }
+        }
+        if (evento.getSource() == button_igual) {
+            num2 = Integer.parseInt(entradajTextField.getText().trim());
+            entradajTextField.setText("");
+            result = num1 + num2;
+            resultadojTextField.setText(String.valueOf(result));
         }
 
         /*
