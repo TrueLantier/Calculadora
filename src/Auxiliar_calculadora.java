@@ -4,22 +4,48 @@ public class Auxiliar_calculadora {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int primer_número, segundo_número;
-        int resultado = 0;
+        double primer_número, segundo_número;
+        double resultado = 0;
         String operación;
+        String rectificar_primero, rectificar_segundo, rectificar_operación;
+        char[] nums = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
+        char[] caracteres = { '+', '-', '*', '/'};
 
-        while (true) {
+            cero:   while (true) {
             System.out.println("\t*** Calculadora JAVA ***");
+            System.out.println("Escriba \'SALIR' para dejar de usar la aplicación.");
+
+            boolean hay_error = true;
+            String str_prueba = scanner.nextLine();
+            if (str_prueba == "SALIR") break cero;
+
+            uno:    for ( int i = 0; i<str_prueba.length(); i++) {
+                for ( int j = 0; j<10; j++) {
+                    if ( str_prueba.charAt(i) == nums[j] ) {
+                        hay_error = false;
+                        continue uno;
+                    }   else {
+                        hay_error = true;
+                    }
+                }
+                if (hay_error) break ;
+            }
+
+            if ( hay_error ) System.out.println("Hay error.");
+            else System.out.println("No hay error.");
+
 
             System.out.println("Ingrese el primer número: ");
-            primer_número = Integer.parseInt(scanner.nextLine());
+
+
+            primer_número = Double.parseDouble(scanner.nextLine());
 
             System.out.println("Elija la operación: ");
             System.out.println("+  -  *  /");
             operación = scanner.nextLine();
 
             System.out.println("Ingrese el segundo número: ");
-            segundo_número = Integer.parseInt(scanner.nextLine());
+            segundo_número = Double.parseDouble(scanner.nextLine());
             // Hasta aquí sería el segundo bucle.
 
             if (operación.length() == 1) {
