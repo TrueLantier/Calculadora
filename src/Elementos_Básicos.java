@@ -54,6 +54,22 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         button_reiniciar.addActionListener(this);
         add(button_reiniciar);
 
+        button_salir = new JButton("Salir");
+        button_salir.setBounds(370,140,120,50);
+        button_salir.setBackground(new Color(0,0,0));
+        button_salir.setFont(new Font("Andale Mono", 1, 14));
+        button_salir.setForeground(new Color(255,255,255));
+        button_salir.addActionListener(this);
+        add(button_salir);
+
+        button_creador = new JButton("Creador");
+        button_creador.setBounds(370,240,120,50);
+        button_creador.setBackground(new Color(0,0,0));
+        button_creador.setFont(new Font("Andale Mono", 1, 14));
+        button_creador.setForeground(new Color(255,255,255));
+        button_creador.addActionListener(this);
+        add(button_creador);
+
         button_suma = new JButton("+");
         button_suma.setBounds(20,40,50,50);
         button_suma.setBackground(new Color(0,0,0));
@@ -67,7 +83,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         button_resta.setBackground(new Color(0,0,0));
         button_resta.setFont(new Font("Andale Mono", 1, 20));
         button_resta.setForeground(new Color(255,255,255));
-        //suma.addActionListener(this);
+        //button_resta.addActionListener(this);
         add(button_resta);
 
         button_multiplicación = new JButton("*");
@@ -75,7 +91,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         button_multiplicación.setBackground(new Color(0,0,0));
         button_multiplicación.setFont(new Font("Andale Mono", 1, 20));
         button_multiplicación.setForeground(new Color(255,255,255));
-        //suma.addActionListener(this);
+        //button_multiplicación.addActionListener(this);
         add(button_multiplicación);
 
         button_división = new JButton("/");
@@ -83,7 +99,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         button_división.setBackground(new Color(0,0,0));
         button_división.setFont(new Font("Andale Mono", 1, 20));
         button_división.setForeground(new Color(255,255,255));
-        //suma.addActionListener(this);
+        //button_división.addActionListener(this);
         add(button_división);
 
         button_igual = new JButton("=");
@@ -110,6 +126,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
 
             }
         }
+
         if (evento.getSource() == button_igual) {
             num2 = Integer.parseInt(entradajTextField.getText().trim());
             entradajTextField.setText("");
@@ -117,17 +134,15 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
             resultadojTextField.setText(String.valueOf(result));
         }
 
-        /*
-        if (evento.getSource() == miSalir) {
+        if (evento.getSource() == button_salir) {
             System.exit(0);
         }
-        if (evento.getSource() == miEl_Creador) {
+        if (evento.getSource() == button_creador) {
             JOptionPane.showMessageDialog(null, "Desarrollado por Angel Eduardo Pedraza Ordoñez.");
         }
-         */
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         Elementos_Básicos elementos_básicos = new Elementos_Básicos();
         elementos_básicos.setBounds(0, 0, 550, 550);
         elementos_básicos.setVisible(true);
