@@ -3,10 +3,9 @@ No esperar hasta el final.
 
 0. Hacer la calculadora sin interfaz gráfica. Luego adaptar.
 0.1 Debe incluir las operaciones básicas. HECHO 🗹
-0.2 Detectar errores de entrada.
-0.3 Tener una forma de detener.
-0.4 Que continúe el ciclo.
-
+0.2 Detectar errores de entrada. HECHO
+0.3 Tener una forma de detener. HECHO
+0.4 Que continúe el ciclo. HECHO
 
 
 1. Pasar a Elementos básicos.

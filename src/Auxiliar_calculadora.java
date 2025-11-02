@@ -35,7 +35,7 @@ public class Auxiliar_calculadora {
                     if (hay_error) break ;
                 }
 
-                if ( hay_error ) System.out.println("Hay error.");
+                if ( hay_error ) System.out.println("Hay error.\n");
             }   while (hay_error);
 
             primer_número = Double.parseDouble(str_prueba);
@@ -46,9 +46,34 @@ public class Auxiliar_calculadora {
                 str_prueba = scanner.nextLine();
                 if ( str_prueba.equals("SALIR") ) break cero;
 
+                if ( str_prueba.length()>1 ) {
+                    hay_error = true;
+                    System.out.println("Hay error.\n");
+                    continue ;
+                }   else {
+                    for ( char ch: caracteres ) {
+                        if ( ch == str_prueba.charAt(0) ) {
+                            hay_error = false;
+                            break ;
+                        }   else {
+                            hay_error = true;
+                        }
+                    }
+                }
+
+                if ( hay_error ) System.out.println("Hay error.\n");
+            }   while (hay_error);
+
+            operación = str_prueba;
+
+            do {
+                System.out.println("Ingrese el segundo número: ");
+                str_prueba = scanner.nextLine();
+                if ( str_prueba.equals("SALIR") ) break cero;
+
                 dos:    for ( int i = 0; i<str_prueba.length(); i++) {
                     for ( int j = 0; j<10; j++) {
-                        if ( str_prueba.charAt(i) == caracteres[j] ) {
+                        if ( str_prueba.charAt(i) == nums[j] ) {
                             hay_error = false;
                             continue dos;
                         }   else {
@@ -58,30 +83,8 @@ public class Auxiliar_calculadora {
                     if (hay_error) break ;
                 }
 
-                if ( hay_error ) System.out.println("Hay error.");
+                if ( hay_error ) System.out.println("Hay error.\n");
             }   while (hay_error);
-
-            operación = str_prueba;
-
-            //Empieza 3er bucle do-while
-            System.out.println("Ingrese el segundo número: ");
-            str_prueba = scanner.nextLine();
-            if ( str_prueba.equals("SALIR") ) break cero;
-
-            tres:    for ( int i = 0; i<str_prueba.length(); i++) {
-                for ( int j = 0; j<10; j++) {
-                    if ( str_prueba.charAt(i) == nums[j] ) {
-                        hay_error = false;
-                        continue tres;
-                    }   else {
-                        hay_error = true;
-                    }
-                }
-                if (hay_error) break ;
-            }
-
-            if ( hay_error ) System.out.println("Hay error.");
-            // Hasta aquí sería el segundo bucle.
 
             segundo_número = Double.parseDouble(str_prueba);
 
