@@ -11,61 +11,62 @@ public class Auxiliar_calculadora {
         char[] nums = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
         char[] caracteres = { '+', '-', '*', '/'};
 
-        while (true) {
+        cero: while (true) {
             boolean hay_error = true;
+            String str_prueba = "";
 
             System.out.println("\n\t*** Calculadora JAVA ***");
             System.out.println("Escriba \'SALIR' para dejar de usar la aplicación.");
-            System.out.println("Ingrese el primer número: ");
 
-            String str_prueba = scanner.nextLine();
-            if ( str_prueba.equals("SALIR") ) break;
+            do {
+                System.out.println("Ingrese el primer número: ");
+                str_prueba = scanner.nextLine();
+                if ( str_prueba.equals("SALIR") ) break cero;
 
-            uno:    for ( int i = 0; i<str_prueba.length(); i++) {
-                for ( int j = 0; j<10; j++) {
-                    if ( str_prueba.charAt(i) == nums[j] ) {
-                        hay_error = false;
-                        continue uno;
-                    }   else {
-                        hay_error = true;
+                uno:    for ( int i = 0; i<str_prueba.length(); i++) {
+                    for ( int j = 0; j<10; j++) {
+                        if ( str_prueba.charAt(i) == nums[j] ) {
+                            hay_error = false;
+                            continue uno;
+                        }   else {
+                            hay_error = true;
+                        }
                     }
+                    if (hay_error) break ;
                 }
-                if (hay_error) break ;
-            }
 
-            if ( hay_error ) System.out.println("Hay error.");
-            // Debería poner un bucle aquí. Para repetir hasta que el usuario no ingrese un error.
-            //else System.out.println("No hay error.");
+                if ( hay_error ) System.out.println("Hay error.");
+            }   while (hay_error);
 
             primer_número = Double.parseDouble(str_prueba);
 
-            //Aquí otro bucle para ver que no halla error en introducir la operación.
-            System.out.println("Elija la operación: ");
-            System.out.println("+  -  *  /");
-            str_prueba = scanner.nextLine();
-            if ( str_prueba.equals("SALIR") ) break;
+            do {
+                System.out.println("Elija la operación: ");
+                System.out.println("+  -  *  /");
+                str_prueba = scanner.nextLine();
+                if ( str_prueba.equals("SALIR") ) break cero;
 
-            dos:    for ( int i = 0; i<str_prueba.length(); i++) {
-                for ( int j = 0; j<10; j++) {
-                    if ( str_prueba.charAt(i) == caracteres[j] ) {
-                        hay_error = false;
-                        continue dos;
-                    }   else {
-                        hay_error = true;
+                dos:    for ( int i = 0; i<str_prueba.length(); i++) {
+                    for ( int j = 0; j<10; j++) {
+                        if ( str_prueba.charAt(i) == caracteres[j] ) {
+                            hay_error = false;
+                            continue dos;
+                        }   else {
+                            hay_error = true;
+                        }
                     }
+                    if (hay_error) break ;
                 }
-                if (hay_error) break ;
-            }
 
-            if ( hay_error ) System.out.println("Hay error.");
-            // Hasta aquí el 2do bucle.
+                if ( hay_error ) System.out.println("Hay error.");
+            }   while (hay_error);
 
             operación = str_prueba;
 
             //Empieza 3er bucle do-while
             System.out.println("Ingrese el segundo número: ");
             str_prueba = scanner.nextLine();
-            if ( str_prueba.equals("SALIR") ) break;
+            if ( str_prueba.equals("SALIR") ) break cero;
 
             tres:    for ( int i = 0; i<str_prueba.length(); i++) {
                 for ( int j = 0; j<10; j++) {
