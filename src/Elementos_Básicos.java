@@ -10,9 +10,11 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
     private JTextField entradajTextField, resultadojTextField;
 
     String string_de_entrada = "";
-    int num1 = 0;
-    int num2 = 0;
-    int result = 0;
+    double primer_número, segundo_número;
+    double resultado = 0;
+    String operación;
+    char[] nums = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
+    char[] caracteres = { '+', '-', '*', '/'};
 
     public Elementos_Básicos() {
         setLayout(null);
@@ -119,7 +121,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
             if (string_de_entrada.equals("")){
                 JOptionPane.showMessageDialog(null, "Debes ingresar un número");
             }   else {
-                num1 = Integer.parseInt(entradajTextField.getText().trim());
+                primer_número = Integer.parseInt(entradajTextField.getText().trim());
                 entradajTextField.setText("");
 
                 //resultadojTextField.setText(String.valueOf(num1+num2));
@@ -128,10 +130,10 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         }
 
         if (evento.getSource() == button_igual) {
-            num2 = Integer.parseInt(entradajTextField.getText().trim());
+            segundo_número = Integer.parseInt(entradajTextField.getText().trim());
             entradajTextField.setText("");
-            result = num1 + num2;
-            resultadojTextField.setText(String.valueOf(result));
+            resultado = primer_número + segundo_número;
+            resultadojTextField.setText(String.valueOf(resultado));
         }
 
         if (evento.getSource() == button_salir) {
@@ -140,6 +142,11 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         if (evento.getSource() == button_creador) {
             JOptionPane.showMessageDialog(null, "Desarrollado por Angel Eduardo Pedraza Ordoñez.");
         }
+        /*
+        if (ingreso_nombre.equals("")){
+                JOptionPane.showMessageDialog(null, "Debes ingresar tu nombre");
+            }
+         */
     }
 
     public static void main(String[] args) {

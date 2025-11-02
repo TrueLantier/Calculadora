@@ -7,7 +7,6 @@ public class Auxiliar_calculadora {
         double primer_número, segundo_número;
         double resultado = 0;
         String operación;
-        String rectificar_primero, rectificar_segundo, rectificar_operación;
         char[] nums = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
         char[] caracteres = { '+', '-', '*', '/'};
 
