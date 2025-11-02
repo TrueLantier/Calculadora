@@ -48,6 +48,46 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         resultadojTextField.setForeground(new Color(255,0,0));
         add(resultadojTextField);
 
+        button_suma = new JButton("+");
+        button_suma.setBounds(20,40,50,50);
+        button_suma.setBackground(new Color(0,0,0));
+        button_suma.setFont(new Font("Andale Mono", 1, 20));
+        button_suma.setForeground(new Color(255,255,255));
+        button_suma.addActionListener(this);
+        add(button_suma);
+
+        button_resta = new JButton("-");
+        button_resta.setBounds(20,90,50,50);
+        button_resta.setBackground(new Color(0,0,0));
+        button_resta.setFont(new Font("Andale Mono", 1, 20));
+        button_resta.setForeground(new Color(255,255,255));
+        button_resta.addActionListener(this);
+        add(button_resta);
+
+        button_multiplicación = new JButton("*");
+        button_multiplicación.setBounds(20,140,50,50);
+        button_multiplicación.setBackground(new Color(0,0,0));
+        button_multiplicación.setFont(new Font("Andale Mono", 1, 20));
+        button_multiplicación.setForeground(new Color(255,255,255));
+        button_multiplicación.addActionListener(this);
+        add(button_multiplicación);
+
+        button_división = new JButton("/");
+        button_división.setBounds(20,190,50,50);
+        button_división.setBackground(new Color(0,0,0));
+        button_división.setFont(new Font("Andale Mono", 1, 20));
+        button_división.setForeground(new Color(255,255,255));
+        button_división.addActionListener(this);
+        add(button_división);
+
+        button_igual = new JButton("=");
+        button_igual.setBounds(20,240,50,50);
+        button_igual.setBackground(new Color(0,0,0));
+        button_igual.setFont(new Font("Andale Mono", 1, 20));
+        button_igual.setForeground(new Color(255,255,255));
+        button_igual.addActionListener(this);
+        add(button_igual);
+
         button_reiniciar = new JButton("Reiniciar");
         button_reiniciar.setBounds(370,40,120,50);
         button_reiniciar.setBackground(new Color(0,0,0));
@@ -72,45 +112,6 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         button_creador.addActionListener(this);
         add(button_creador);
 
-        button_suma = new JButton("+");
-        button_suma.setBounds(20,40,50,50);
-        button_suma.setBackground(new Color(0,0,0));
-        button_suma.setFont(new Font("Andale Mono", 1, 20));
-        button_suma.setForeground(new Color(255,255,255));
-        button_suma.addActionListener(this);
-        add(button_suma);
-
-        button_resta = new JButton("-");
-        button_resta.setBounds(20,90,50,50);
-        button_resta.setBackground(new Color(0,0,0));
-        button_resta.setFont(new Font("Andale Mono", 1, 20));
-        button_resta.setForeground(new Color(255,255,255));
-        //button_resta.addActionListener(this);
-        add(button_resta);
-
-        button_multiplicación = new JButton("*");
-        button_multiplicación.setBounds(20,140,50,50);
-        button_multiplicación.setBackground(new Color(0,0,0));
-        button_multiplicación.setFont(new Font("Andale Mono", 1, 20));
-        button_multiplicación.setForeground(new Color(255,255,255));
-        //button_multiplicación.addActionListener(this);
-        add(button_multiplicación);
-
-        button_división = new JButton("/");
-        button_división.setBounds(20,190,50,50);
-        button_división.setBackground(new Color(0,0,0));
-        button_división.setFont(new Font("Andale Mono", 1, 20));
-        button_división.setForeground(new Color(255,255,255));
-        //button_división.addActionListener(this);
-        add(button_división);
-
-        button_igual = new JButton("=");
-        button_igual.setBounds(20,240,50,50);
-        button_igual.setBackground(new Color(0,0,0));
-        button_igual.setFont(new Font("Andale Mono", 1, 20));
-        button_igual.setForeground(new Color(255,255,255));
-        button_igual.addActionListener(this);
-        add(button_igual);
     }
 
     public void actionPerformed( ActionEvent evento){
@@ -118,22 +119,68 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         string_de_entrada = entradajTextField.getText().trim();
 
         if (evento.getSource() == button_suma) {
-            if (string_de_entrada.equals("")){
+            if (string_de_entrada.isEmpty()){
                 JOptionPane.showMessageDialog(null, "Debes ingresar un número");
             }   else {
-                primer_número = Integer.parseInt(entradajTextField.getText().trim());
+                primer_número = Double.parseDouble(string_de_entrada);
                 entradajTextField.setText("");
+                operación = "+";
+            }
+        }
 
-                //resultadojTextField.setText(String.valueOf(num1+num2));
+        if (evento.getSource() == button_resta) {
+            if (string_de_entrada.isEmpty()){
+                JOptionPane.showMessageDialog(null, "Debes ingresar un número");
+            }   else {
+                primer_número = Double.parseDouble(string_de_entrada);
+                entradajTextField.setText("");
+                operación = "-";
+            }
+        }
 
+        if (evento.getSource() == button_multiplicación) {
+            if (string_de_entrada.isEmpty()){
+                JOptionPane.showMessageDialog(null, "Debes ingresar un número");
+            }
+        }
+
+        if (evento.getSource() == button_división) {
+            if (string_de_entrada.isEmpty()){
+                JOptionPane.showMessageDialog(null, "Debes ingresar un número");
             }
         }
 
         if (evento.getSource() == button_igual) {
-            segundo_número = Integer.parseInt(entradajTextField.getText().trim());
+            if (string_de_entrada.isEmpty()){
+                JOptionPane.showMessageDialog(null, "Debes ingresar un número");
+            }   else {
+                segundo_número = Double.parseDouble(string_de_entrada);
+                entradajTextField.setText("");
+
+                switch (operación) {
+                    case "+":
+                        resultado = primer_número + segundo_número;
+                        break;
+                    case "-":
+                        resultado = primer_número - segundo_número;
+                        break;
+                    case "*":
+                        resultado = primer_número * segundo_número;
+                        break;
+                    case "/":
+                        resultado = primer_número / segundo_número;
+                        break;
+                }
+
+                resultadojTextField.setText(String.valueOf(resultado));
+            }
+        }
+
+        if (evento.getSource() == button_reiniciar) {
+            primer_número = 0;
+            segundo_número = 0;
             entradajTextField.setText("");
-            resultado = primer_número + segundo_número;
-            resultadojTextField.setText(String.valueOf(resultado));
+            resultadojTextField.setText("");
         }
 
         if (evento.getSource() == button_salir) {
@@ -142,11 +189,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         if (evento.getSource() == button_creador) {
             JOptionPane.showMessageDialog(null, "Desarrollado por Angel Eduardo Pedraza Ordoñez.");
         }
-        /*
-        if (ingreso_nombre.equals("")){
-                JOptionPane.showMessageDialog(null, "Debes ingresar tu nombre");
-            }
-         */
+
     }
 
     public static void main(String[] args) {
