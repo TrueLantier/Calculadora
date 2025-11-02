@@ -9,9 +9,12 @@ No esperar hasta el final para pasarlo todo.
 
 
 1. Pasar a Elementos básicos.
-1.1 Debe incluir las operaciones básicas.
+1.1 Debe incluir las operaciones básicas. HECHO
+1.1.1 Que puedan realizarse múltiples veces.
 1.2 Detectar errores de entrada.
-
+1.3 Tener una forma de detener. HECHO
+1.4 Que continúe en ciclo.
+Detalle con los números fraccionarios y ese 00000000000002.
 
 2. Agregar funciones.
 

@@ -10,11 +10,13 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
     private JTextField entradajTextField, resultadojTextField;
 
     String string_de_entrada = "";
+    String string_de_resultado = "";
     double primer_número, segundo_número;
     double resultado = 0;
     String operación;
     char[] nums = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
     char[] caracteres = { '+', '-', '*', '/'};
+    boolean hay_error = true;
 
     public Elementos_Básicos() {
         setLayout(null);
@@ -117,8 +119,13 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
     public void actionPerformed( ActionEvent evento){
 
         string_de_entrada = entradajTextField.getText().trim();
+        //string_de_resultado = resultadojTextField.getText();
+        //& resultadojTextField.getText().isEmpty()
 
         if (evento.getSource() == button_suma) {
+            /*
+            Problema de la acumulación: Poner varios if y else-if?
+             */
             if (string_de_entrada.isEmpty()){
                 JOptionPane.showMessageDialog(null, "Debes ingresar un número");
             }   else {
@@ -141,12 +148,20 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         if (evento.getSource() == button_multiplicación) {
             if (string_de_entrada.isEmpty()){
                 JOptionPane.showMessageDialog(null, "Debes ingresar un número");
+            }   else {
+                primer_número = Double.parseDouble(string_de_entrada);
+                entradajTextField.setText("");
+                operación = "*";
             }
         }
 
         if (evento.getSource() == button_división) {
             if (string_de_entrada.isEmpty()){
                 JOptionPane.showMessageDialog(null, "Debes ingresar un número");
+            }   else {
+                primer_número = Double.parseDouble(string_de_entrada);
+                entradajTextField.setText("");
+                operación = "/";
             }
         }
 

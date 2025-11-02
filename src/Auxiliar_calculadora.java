@@ -10,6 +10,9 @@ public class Auxiliar_calculadora {
         char[] nums = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
         char[] caracteres = { '+', '-', '*', '/'};
 
+        // Error para introducir números reales no enteros.
+        // Tal vez poner '.' en la matriz pero especificar que no puede ser el 1er caracter ni en último.
+
         cero: while (true) {
             boolean hay_error = true;
             String str_prueba = "";
