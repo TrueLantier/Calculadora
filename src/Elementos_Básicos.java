@@ -125,7 +125,9 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         if (evento.getSource() == button_suma) {
 
             /*
-            Si string_de_resultado isEmpty
+            Si string_de_resultado !(isEmpty)
+            Empezar con un Empty donde primer número = resultado
+            poner operación = '+'
              */
 
             if (string_de_entrada.isEmpty()) {
