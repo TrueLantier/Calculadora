@@ -123,6 +123,11 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         //& resultadojTextField.getText().isEmpty()
 
         if (evento.getSource() == button_suma) {
+
+            /*
+            Si string_de_resultado isEmpty
+             */
+
             if (string_de_entrada.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Debes ingresar un número");
             }   else {
@@ -242,8 +247,6 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                 }
             }
         }
-
-        //  booleano !empty
 
         if (evento.getSource() == button_igual) {
             if (string_de_entrada.isEmpty()){
