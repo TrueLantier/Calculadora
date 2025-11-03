@@ -158,12 +158,12 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
             }   else {
 
                 int cont_puntos = 0;
-                for_suma:    for ( int i = 0; i<string_de_entrada.length(); i++) {
+                for_resta:    for ( int i = 0; i<string_de_entrada.length(); i++) {
                     if (string_de_entrada.charAt(i) == '.') ++cont_puntos;
                     for ( int j = 0; j< nums.length; j++) {
                         if ( string_de_entrada.charAt(i) == nums[j] ) {
                             hay_error = false;
-                            continue for_suma;
+                            continue for_resta;
                         }   else {
                             hay_error = true;
                         }
@@ -188,12 +188,12 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
             }   else {
 
                 int cont_puntos = 0;
-                for_suma:    for ( int i = 0; i<string_de_entrada.length(); i++) {
+                for_mult:    for ( int i = 0; i<string_de_entrada.length(); i++) {
                     if (string_de_entrada.charAt(i) == '.') ++cont_puntos;
                     for ( int j = 0; j< nums.length; j++) {
                         if ( string_de_entrada.charAt(i) == nums[j] ) {
                             hay_error = false;
-                            continue for_suma;
+                            continue for_mult;
                         }   else {
                             hay_error = true;
                         }
@@ -219,12 +219,12 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
             }   else {
 
                 int cont_puntos = 0;
-                for_suma:    for ( int i = 0; i<string_de_entrada.length(); i++) {
+                for_div:    for ( int i = 0; i<string_de_entrada.length(); i++) {
                     if (string_de_entrada.charAt(i) == '.') ++cont_puntos;
                     for ( int j = 0; j< nums.length; j++) {
                         if ( string_de_entrada.charAt(i) == nums[j] ) {
                             hay_error = false;
-                            continue for_suma;
+                            continue for_div;
                         }   else {
                             hay_error = true;
                         }
@@ -243,37 +243,60 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
             }
         }
 
-
+        //  booleano !empty
 
         if (evento.getSource() == button_igual) {
             if (string_de_entrada.isEmpty()){
                 JOptionPane.showMessageDialog(null, "Debes ingresar un número");
             }   else {
-                segundo_número = Double.parseDouble(string_de_entrada);
-                entradajTextField.setText("");
 
-                switch (operación) {
-                    case "+":
-                        resultado = primer_número + segundo_número;
-                        break;
-                    case "-":
-                        resultado = primer_número - segundo_número;
-                        break;
-                    case "*":
-                        resultado = primer_número * segundo_número;
-                        break;
-                    case "/":
-                        resultado = primer_número / segundo_número;
-                        break;
+                int cont_puntos = 0;
+                for_suma:    for ( int i = 0; i<string_de_entrada.length(); i++) {
+                    if (string_de_entrada.charAt(i) == '.') ++cont_puntos;
+                    for ( int j = 0; j< nums.length; j++) {
+                        if ( string_de_entrada.charAt(i) == nums[j] ) {
+                            hay_error = false;
+                            continue for_suma;
+                        }   else {
+                            hay_error = true;
+                        }
+                    }
+                    if (hay_error) break ;
                 }
 
-                resultadojTextField.setText(String.valueOf(resultado));
+                if ( hay_error || (cont_puntos>1) || (string_de_entrada.charAt(0) == '.')
+                        || (string_de_entrada.charAt( string_de_entrada.length()-1 ) == '.') ) {
+                    JOptionPane.showMessageDialog(null, "Debes ingresar el número correctamente.");
+                }   else {
+                    segundo_número = Double.parseDouble(string_de_entrada);
+                    entradajTextField.setText("");
+
+                    switch (operación) {
+                        case "+":
+                            resultado = primer_número + segundo_número;
+                            break;
+                        case "-":
+                            resultado = primer_número - segundo_número;
+                            break;
+                        case "*":
+                            resultado = primer_número * segundo_número;
+                            break;
+                        case "/":
+                            resultado = primer_número / segundo_número;
+                            break;
+                    }
+
+                    resultadojTextField.setText(String.valueOf(resultado));
+                }
+
+
             }
         }
 
         if (evento.getSource() == button_reiniciar) {
             primer_número = 0;
             segundo_número = 0;
+            resultado = 0;
             entradajTextField.setText("");
             resultadojTextField.setText("");
         }
