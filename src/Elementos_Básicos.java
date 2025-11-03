@@ -13,8 +13,8 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
     String string_de_resultado = "";
     double primer_número, segundo_número;
     double resultado = 0;
-    String operación;
-    char[] nums = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
+    String operación = "";
+    char[] nums = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.'};
     char[] caracteres = { '+', '-', '*', '/'};
     boolean hay_error = true;
 
@@ -123,15 +123,29 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         //& resultadojTextField.getText().isEmpty()
 
         if (evento.getSource() == button_suma) {
-            /*
-            Problema de la acumulación: Poner varios if y else-if?
-             */
-            if (string_de_entrada.isEmpty()){
+            if (string_de_entrada.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Debes ingresar un número");
             }   else {
-                primer_número = Double.parseDouble(string_de_entrada);
-                entradajTextField.setText("");
-                operación = "+";
+                for_suma:    for ( int i = 0; i<string_de_entrada.length(); i++) {
+                    for ( int j = 0; j< nums.length; j++) {
+                        if ( string_de_entrada.charAt(i) == nums[j] ) {
+                            hay_error = false;
+                            continue for_suma;
+                        }   else {
+                            hay_error = true;
+                        }
+                    }
+                    if (hay_error) break ;
+                }
+
+                if (hay_error || (string_de_entrada.charAt(0) == '.')
+                    || string_de_entrada.charAt( string_de_entrada.length()-1 ) == '.') {
+                    JOptionPane.showMessageDialog(null, "Debes ingresar el número correctamente.");
+                }   else {
+                    primer_número = Double.parseDouble(string_de_entrada);
+                    entradajTextField.setText("");
+                    operación = "+";
+                }
             }
         }
 
