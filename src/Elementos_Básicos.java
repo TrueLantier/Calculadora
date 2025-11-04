@@ -309,8 +309,6 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
 
                     resultadojTextField.setText(String.valueOf(resultado));
                 }
-
-
             }
         }
 
