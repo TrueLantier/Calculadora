@@ -119,42 +119,42 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
     public void actionPerformed( ActionEvent evento){
 
         string_de_entrada = entradajTextField.getText().trim();
-        //string_de_resultado = resultadojTextField.getText();
+        string_de_resultado = resultadojTextField.getText();
         //& resultadojTextField.getText().isEmpty()
 
         if (evento.getSource() == button_suma) {
-
-            /*
-            Si string_de_resultado !(isEmpty)
-            Empezar con un Empty donde primer número = resultado
-            poner operación = '+'
-             */
-
-            if (string_de_entrada.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Debes ingresar un número");
+            if ( !(string_de_resultado.isEmpty()) ) {
+                primer_número = Double.parseDouble(string_de_resultado);
+                resultadojTextField.setText("");
+                operación = "+";
             }   else {
-
-                int cont_puntos = 0;
-                for_suma:    for ( int i = 0; i<string_de_entrada.length(); i++) {
-                    if (string_de_entrada.charAt(i) == '.') ++cont_puntos;
-                    for ( int j = 0; j< nums.length; j++) {
-                        if ( string_de_entrada.charAt(i) == nums[j] ) {
-                            hay_error = false;
-                            continue for_suma;
-                        }   else {
-                            hay_error = true;
-                        }
-                    }
-                    if (hay_error) break ;
-                }
-
-                if ( hay_error || (cont_puntos>1) || (string_de_entrada.charAt(0) == '.')
-                    || (string_de_entrada.charAt( string_de_entrada.length()-1 ) == '.') ) {
-                    JOptionPane.showMessageDialog(null, "Debes ingresar el número correctamente.");
+                if (string_de_entrada.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Debes ingresar un número");
                 }   else {
-                    primer_número = Double.parseDouble(string_de_entrada);
-                    entradajTextField.setText("");
-                    operación = "+";
+
+                    int cont_puntos = 0;
+                    for_suma:    for ( int i = 0; i<string_de_entrada.length(); i++) {
+                        if (string_de_entrada.charAt(i) == '.') ++cont_puntos;
+                        for ( int j = 0; j< nums.length; j++) {
+                            if ( string_de_entrada.charAt(i) == nums[j] ) {
+                                hay_error = false;
+                                continue for_suma;
+                            }   else {
+                                hay_error = true;
+                            }
+                        }
+                        if (hay_error) break ;
+                    }
+
+                    if ( hay_error || (cont_puntos>1) || (string_de_entrada.charAt(0) == '.')
+                            || (string_de_entrada.charAt( string_de_entrada.length()-1 ) == '.') ) {
+                        JOptionPane.showMessageDialog(
+                                null, "Debes ingresar el número correctamente.");
+                    }   else {
+                        primer_número = Double.parseDouble(string_de_entrada);
+                        entradajTextField.setText("");
+                        operación = "+";
+                    }
                 }
             }
         }
@@ -271,7 +271,8 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
 
                 if ( hay_error || (cont_puntos>1) || (string_de_entrada.charAt(0) == '.')
                         || (string_de_entrada.charAt( string_de_entrada.length()-1 ) == '.') ) {
-                    JOptionPane.showMessageDialog(null, "Debes ingresar el número correctamente.");
+                    JOptionPane.showMessageDialog(
+                            null, "Debes ingresar el número correctamente.");
                 }   else {
                     segundo_número = Double.parseDouble(string_de_entrada);
                     entradajTextField.setText("");
