@@ -21,7 +21,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
     public Elementos_Básicos() {
         setLayout(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setTitle("Bienvenido");
+        setTitle("CALCULADORA");
         getContentPane().setBackground(new Color(0,255,0));
 
         valoresLabel = new JLabel("Valores:");
@@ -305,7 +305,6 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
             entradajTextField.setText("");
             resultadojTextField.setText("");
         }
-
         if (evento.getSource() == button_salir) {
             System.exit(0);
         }
