@@ -13,6 +13,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
 
     String string_de_entrada = "";
     String string_de_resultado = "";
+    String string_de_historial = "";
     double primer_número, segundo_número;
     double resultado = 0;
     String operación = "";
@@ -132,10 +133,9 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
 
         string_de_entrada = entradajTextField.getText().trim();
         string_de_resultado = resultadojTextField.getText();
-        //& resultadojTextField.getText().isEmpty()
 
         if (evento.getSource() == button_suma) {
-            if ( !(string_de_resultado.isEmpty()) ) {
+            if ( !(string_de_resultado.isEmpty()) && string_de_entrada.isEmpty() ) {
                 primer_número = Double.parseDouble(string_de_resultado);
                 resultadojTextField.setText("");
                 operación = "+";
@@ -171,7 +171,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         }
 
         if (evento.getSource() == button_resta) {
-            if ( !(string_de_resultado.isEmpty()) ) {
+            if ( !(string_de_resultado.isEmpty()) && string_de_entrada.isEmpty() ) {
                 primer_número = Double.parseDouble(string_de_resultado);
                 resultadojTextField.setText("");
                 operación = "-";
@@ -207,7 +207,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         }
 
         if (evento.getSource() == button_multiplicación) {
-            if ( !(string_de_resultado.isEmpty()) ) {
+            if ( !(string_de_resultado.isEmpty()) && string_de_entrada.isEmpty() ) {
                 primer_número = Double.parseDouble(string_de_resultado);
                 resultadojTextField.setText("");
                 operación = "*";
@@ -243,7 +243,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         }
 
         if (evento.getSource() == button_división) {
-            if ( !(string_de_resultado.isEmpty()) ) {
+            if ( !(string_de_resultado.isEmpty()) && string_de_entrada.isEmpty() ) {
                 primer_número = Double.parseDouble(string_de_resultado);
                 resultadojTextField.setText("");
                 operación = "/";
@@ -319,7 +319,10 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                             break;
                     }
 
+                    string_de_historial += "\n" + String.valueOf(primer_número) + operación +
+                            String.valueOf(segundo_número) + "=" + String.valueOf(resultado);
                     resultadojTextField.setText(String.valueOf(resultado));
+                    textarea_historial.setText(string_de_historial);
                 }
             }
         }
@@ -330,6 +333,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
             resultado = 0;
             entradajTextField.setText("");
             resultadojTextField.setText("");
+            //textarea_historial.setText("\n Este es el historial.");
         }
         if (evento.getSource() == button_salir) {
             System.exit(0);
