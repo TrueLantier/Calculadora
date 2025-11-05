@@ -16,14 +16,22 @@ No esperar hasta el final para pasarlo todo.
 1.4 Que continúe en ciclo. HECHO
 Detalle con los números fraccionarios y ese 00000000000002. Implementar BigDecimal
 
-2. Agregar funciones matemáticas como seno, coseno, exponencial, etc.
+
+2. Agregar funciones matemáticas como seno, coseno, exponencial, elevar al cuadrado, raíz cuadrada, etc.
 
 
 3. Se debe buscar cómo hacer el empaquetado de la aplicación.
 
 
 4. Hacer historial de operaciones.
+Navegar en él.
 
+
+5. Poner imagen de fondo de pantalla.
+6. Tal vez nueva pestaña donde muestre otras opciones.
+Hacer que se puedan copiar los elementos y que pueda pegarse algo. Responder al click.
+Operación MÓDULO.
+Botón de ir hacia atrás.
 
 ***
 

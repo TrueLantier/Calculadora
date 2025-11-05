@@ -8,6 +8,8 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
             button_salir, button_creador;
     private JLabel valoresLabel, resultadoLabel;
     private JTextField entradajTextField, resultadojTextField;
+    private JTextArea textarea_historial;
+    private JScrollPane scroll1;
 
     String string_de_entrada = "";
     String string_de_resultado = "";
@@ -21,7 +23,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
     public Elementos_Básicos() {
         setLayout(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setTitle("CALCULADORA");
+        setTitle("CALCULADORA BÁSICA");
         getContentPane().setBackground(new Color(0,255,0));
 
         valoresLabel = new JLabel("Valores:");
@@ -44,6 +46,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         add(entradajTextField);
 
         resultadojTextField = new JTextField();
+        resultadojTextField.setEditable(false); //Para que no lo puedan modificar.
         resultadojTextField.setBounds(90,140,255,25);
         resultadojTextField.setBackground(new Color(224,224,224));
         resultadojTextField.setFont(new Font("Andale Mono", 1, 14));
@@ -114,6 +117,15 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         button_creador.addActionListener(this);
         add(button_creador);
 
+        textarea_historial = new JTextArea();
+        textarea_historial.setEditable(false);
+        textarea_historial.setBackground(new Color(224,224,224));
+        textarea_historial.setFont(new Font("Andale Mono",1,12 ));
+        textarea_historial.setForeground(new Color(255,0,0));
+        textarea_historial.setText("\n Este es el historial.");
+        scroll1 = new JScrollPane(textarea_historial);
+        scroll1.setBounds(140,300,350,90);
+        add(scroll1);
     }
 
     public void actionPerformed( ActionEvent evento){
