@@ -319,7 +319,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                             break;
                     }
 
-                    string_de_historial += "\n" + String.valueOf(primer_número) + operación +
+                    string_de_historial += "\n" +" " + String.valueOf(primer_número) + operación +
                             String.valueOf(segundo_número) + "=" + String.valueOf(resultado);
                     resultadojTextField.setText(String.valueOf(resultado));
                     textarea_historial.setText(string_de_historial);
