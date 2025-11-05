@@ -6,7 +6,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
 
     private JButton button_suma, button_resta, button_multiplicación, button_división, button_reiniciar, button_igual,
             button_salir, button_creador;
-    private JLabel valoresLabel, resultadoLabel;
+    private JLabel valoresLabel, resultadoLabel, historialLabel;
     private JTextField entradajTextField, resultadojTextField;
     private JTextArea textarea_historial;
     private JScrollPane scroll1;
@@ -28,19 +28,25 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         getContentPane().setBackground(new Color(0,255,0));
 
         valoresLabel = new JLabel("Valores:");
-        valoresLabel.setBounds(90,15,255,25);
+        valoresLabel.setBounds(100,15,255,25);
         valoresLabel.setFont(new Font("Andale Mono", 3, 18));
         valoresLabel.setForeground(new Color(0,0,0));
         add(valoresLabel);
 
         resultadoLabel = new JLabel("Resultado:");
-        resultadoLabel.setBounds(90,115,255,25);
+        resultadoLabel.setBounds(100,115,255,25);
         resultadoLabel.setFont(new Font("Andale Mono", 3, 18));
         resultadoLabel.setForeground(new Color(0,0,0));
         add(resultadoLabel);
 
+        historialLabel = new JLabel("Historial");
+        historialLabel.setBounds(20,310,255,25);
+        historialLabel.setFont(new Font("Andale Mono", 3, 18));
+        historialLabel.setForeground(new Color(0,0,0));
+        add(historialLabel);
+
         entradajTextField = new JTextField();
-        entradajTextField.setBounds(90,40,255,25);
+        entradajTextField.setBounds(100,40,255,25);
         entradajTextField.setBackground(new Color(224,224,224));
         entradajTextField.setFont(new Font("Andale Mono", 1, 14));
         entradajTextField.setForeground(new Color(255,0,0));
@@ -48,7 +54,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
 
         resultadojTextField = new JTextField();
         resultadojTextField.setEditable(false); //Para que no lo puedan modificar.
-        resultadojTextField.setBounds(90,140,255,25);
+        resultadojTextField.setBounds(100,140,255,25);
         resultadojTextField.setBackground(new Color(224,224,224));
         resultadojTextField.setFont(new Font("Andale Mono", 1, 14));
         resultadojTextField.setForeground(new Color(255,0,0));
@@ -95,7 +101,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         add(button_igual);
 
         button_reiniciar = new JButton("Reiniciar");
-        button_reiniciar.setBounds(370,40,120,50);
+        button_reiniciar.setBounds(390,40,120,50);
         button_reiniciar.setBackground(new Color(0,0,0));
         button_reiniciar.setFont(new Font("Andale Mono", 1, 14));
         button_reiniciar.setForeground(new Color(255,255,255));
@@ -103,7 +109,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         add(button_reiniciar);
 
         button_salir = new JButton("Salir");
-        button_salir.setBounds(370,140,120,50);
+        button_salir.setBounds(390,140,120,50);
         button_salir.setBackground(new Color(0,0,0));
         button_salir.setFont(new Font("Andale Mono", 1, 14));
         button_salir.setForeground(new Color(255,255,255));
@@ -111,7 +117,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         add(button_salir);
 
         button_creador = new JButton("Creador");
-        button_creador.setBounds(370,240,120,50);
+        button_creador.setBounds(390,240,120,50);
         button_creador.setBackground(new Color(0,0,0));
         button_creador.setFont(new Font("Andale Mono", 1, 14));
         button_creador.setForeground(new Color(255,255,255));
@@ -121,11 +127,11 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         textarea_historial = new JTextArea();
         textarea_historial.setEditable(false);
         textarea_historial.setBackground(new Color(224,224,224));
-        textarea_historial.setFont(new Font("Andale Mono",1,12 ));
+        textarea_historial.setFont(new Font("Andale Mono",1,13 ));
         textarea_historial.setForeground(new Color(255,0,0));
-        textarea_historial.setText("\n Este es el historial.");
+        //textarea_historial.setText("\n Este es el historial.");
         scroll1 = new JScrollPane(textarea_historial);
-        scroll1.setBounds(140,300,350,90);
+        scroll1.setBounds(20,335,350,90);
         add(scroll1);
     }
 
@@ -319,7 +325,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                             break;
                     }
 
-                    string_de_historial = "\n" +" " + String.valueOf(primer_número) + operación +
+                    string_de_historial = "\n" + "  " + String.valueOf(primer_número) + operación +
                             String.valueOf(segundo_número) + "=" + String.valueOf(resultado);
                     resultadojTextField.setText(String.valueOf(resultado));
                     textarea_historial.insert(string_de_historial,0);
@@ -334,7 +340,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
             resultado = 0;
             entradajTextField.setText("");
             resultadojTextField.setText("");
-            //textarea_historial.setText("\n Este es el historial.");
+            //textarea_historial.setText("");
         }
         if (evento.getSource() == button_salir) {
             System.exit(0);
