@@ -6,7 +6,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
 
     private JButton button_suma, button_resta, button_multiplicación, button_división, button_reiniciar, button_igual,
             button_salir, button_creador;
-    private JLabel valoresLabel, resultadoLabel, historialLabel;
+    private JLabel valoresLabel, resultadoLabel, historialLabel, imagenLabel;
     private JTextField entradajTextField, resultadojTextField;
     private JTextArea textarea_historial;
     private JScrollPane scroll1;
@@ -22,7 +22,14 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
     boolean hay_error = true;
 
     public Elementos_Básicos() {
-        setLayout(null);
+
+        JLabel fondo = new JLabel();
+        fondo.setIcon(new ImageIcon(
+                "/home/angel/Documentos/ESCUELA/Calculadora/image_calculadora/5a07fd29adb1473d0d87f5e09be24fa8.jpg"
+        ));
+        fondo.setLayout(null);
+
+        //setLayout(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("CALCULADORA BÁSICA");
         getContentPane().setBackground(new Color(0,255,0));
@@ -30,19 +37,19 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         valoresLabel = new JLabel("Valores:");
         valoresLabel.setBounds(100,15,255,25);
         valoresLabel.setFont(new Font("Andale Mono", 3, 18));
-        valoresLabel.setForeground(new Color(0,0,0));
+        valoresLabel.setForeground(new Color(255,255,255));
         add(valoresLabel);
 
         resultadoLabel = new JLabel("Resultado:");
         resultadoLabel.setBounds(100,115,255,25);
         resultadoLabel.setFont(new Font("Andale Mono", 3, 18));
-        resultadoLabel.setForeground(new Color(0,0,0));
+        resultadoLabel.setForeground(new Color(255,255,255));
         add(resultadoLabel);
 
         historialLabel = new JLabel("Historial");
         historialLabel.setBounds(20,310,255,25);
         historialLabel.setFont(new Font("Andale Mono", 3, 18));
-        historialLabel.setForeground(new Color(0,0,0));
+        historialLabel.setForeground(new Color(255,255,255));
         add(historialLabel);
 
         entradajTextField = new JTextField();
@@ -65,6 +72,9 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         button_suma.setBackground(new Color(0,0,0));
         button_suma.setFont(new Font("Andale Mono", 1, 20));
         button_suma.setForeground(new Color(255,255,255));
+        //button_suma.setOpaque(false); Esto es para volverlo transparente.
+        //button_suma.setContentAreaFilled(false);
+        //button_suma.setBorderPainted(false); Para bordes.
         button_suma.addActionListener(this);
         add(button_suma);
 
@@ -133,6 +143,9 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         scroll1 = new JScrollPane(textarea_historial);
         scroll1.setBounds(20,335,350,90);
         add(scroll1);
+
+        //fondo.add(button_creador); Debería poner esto?
+        add(fondo);
     }
 
     public void actionPerformed( ActionEvent evento){
@@ -353,7 +366,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
 
     public static void main(String[] args) {
         Elementos_Básicos elementos_básicos = new Elementos_Básicos();
-        elementos_básicos.setBounds(0, 0, 550, 550);
+        elementos_básicos.setBounds(0, 0, 600, 600);
         elementos_básicos.setVisible(true);
         elementos_básicos.setResizable(false);
         elementos_básicos.setLocationRelativeTo(null);
