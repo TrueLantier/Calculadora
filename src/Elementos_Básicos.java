@@ -136,7 +136,8 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
 
         textarea_historial = new JTextArea();
         textarea_historial.setEditable(false);
-        textarea_historial.setBackground(new Color(224,224,224));
+        textarea_historial.setOpaque(false); // Esto funciona?
+        //textarea_historial.setBackground(new Color(224,224,224));
         textarea_historial.setFont(new Font("Andale Mono",1,13 ));
         textarea_historial.setForeground(new Color(255,0,0));
         //textarea_historial.setText("\n Este es el historial.");
