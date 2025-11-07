@@ -25,7 +25,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
 
         JLabel fondo = new JLabel();
         fondo.setIcon(new ImageIcon(
-                "/home/angel/Documentos/ESCUELA/Calculadora/image_calculadora/5a07fd29adb1473d0d87f5e09be24fa8.jpg"
+                "/home/angel/Documentos/ESCUELA/Calculadora/image_calculadora/16038106_spiral-2-red.jpg"
         ));
         fondo.setLayout(null);
 
@@ -367,7 +367,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
 
     public static void main(String[] args) {
         Elementos_Básicos elementos_básicos = new Elementos_Básicos();
-        elementos_básicos.setBounds(0, 0, 600, 600);
+        elementos_básicos.setBounds(0, 0, 720, 720);
         elementos_básicos.setVisible(true);
         elementos_básicos.setResizable(false);
         elementos_básicos.setLocationRelativeTo(null);
