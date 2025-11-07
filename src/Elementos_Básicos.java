@@ -367,7 +367,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
 
     public static void main(String[] args) {
         Elementos_Básicos elementos_básicos = new Elementos_Básicos();
-        elementos_básicos.setBounds(0, 0, 720, 720);
+        elementos_básicos.setBounds(0, 0, 600, 600);
         elementos_básicos.setVisible(true);
         elementos_básicos.setResizable(false);
         elementos_básicos.setLocationRelativeTo(null);
