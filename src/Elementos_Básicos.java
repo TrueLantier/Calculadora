@@ -109,7 +109,6 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         button_igual.addActionListener(this);
         add(button_igual);
 
-        //➋ √
         button_cuadrado = new JButton("2");
         button_cuadrado.setBounds(20,450, 50,50);
         button_cuadrado.setBackground(new Color(0,0,0));
@@ -118,7 +117,21 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         button_cuadrado.addActionListener(this);
         add(button_cuadrado);
 
+        button_raíz = new JButton("√");
+        button_raíz.setBounds(70,450, 50,50);
+        button_raíz.setBackground(new Color(0,0,0));
+        button_raíz.setFont(new Font("Andale Mono",1,20));
+        button_raíz.setForeground(new Color(255,255,255));
+        button_raíz.addActionListener(this);
+        add(button_raíz);
 
+        button_módulo= new JButton("%");
+        button_módulo.setBounds(120,450, 50,50);
+        button_módulo.setBackground(new Color(0,0,0));
+        button_módulo.setFont(new Font("Andale Mono",1,18));
+        button_módulo.setForeground(new Color(255,255,255));
+        //button_módulo.addActionListener(this);
+        add(button_módulo);
 
         button_reiniciar = new JButton("Reiniciar");
         button_reiniciar.setBounds(390,40,120,50);
@@ -322,12 +335,12 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                 }   else {
 
                     int cont_puntos = 0;
-                    for_div:    for ( int i = 0; i<string_de_entrada.length(); i++) {
+                    for_cuadrado:    for ( int i = 0; i<string_de_entrada.length(); i++) {
                         if (string_de_entrada.charAt(i) == '.') ++cont_puntos;
                         for ( int j = 0; j< nums.length; j++) {
                             if ( string_de_entrada.charAt(i) == nums[j] ) {
                                 hay_error = false;
-                                continue for_div;
+                                continue for_cuadrado;
                             }   else {
                                 hay_error = true;
                             }
@@ -343,6 +356,52 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                         resultado = primer_número * primer_número;
                         resultadojTextField.setText(String.valueOf(resultado));
                         string_de_historial = "\n" + "  " + String.valueOf(primer_número) + " * " +
+                                String.valueOf(primer_número) + " = " + String.valueOf(resultado);
+                        textarea_historial.insert(string_de_historial,0);
+                        entradajTextField.setText("");
+                    }
+                }
+            }
+        }
+
+        if (evento.getSource() == button_raíz) {
+            if ( !(string_de_resultado.isEmpty()) && string_de_entrada.isEmpty() ) {
+                primer_número = Double.parseDouble(string_de_resultado);
+                resultado = Math.sqrt(primer_número);
+                resultadojTextField.setText(String.valueOf(resultado));
+                string_de_historial = "\n" + "  " + "√" +
+                        String.valueOf(primer_número) + " = " + String.valueOf(resultado);
+                textarea_historial.insert(string_de_historial,0);
+            }   else {
+                if (string_de_entrada.isEmpty()) {
+                    JOptionPane.showMessageDialog(null,"Debes ingresar un número.");
+                }   else {
+
+                    int cont_puntos = 0;
+                    /* Aquí no se debe permitir ingresos negativos.
+                    Especificar que no están permitidas las operaciones con complejos.
+                    */
+                    for_raíz:    for ( int i = 0; i<string_de_entrada.length(); i++) {
+                        if (string_de_entrada.charAt(i) == '.') ++cont_puntos;
+                        for ( int j = 0; j< nums.length; j++) {
+                            if ( string_de_entrada.charAt(i) == nums[j] ) {
+                                hay_error = false;
+                                continue for_raíz;
+                            }   else {
+                                hay_error = true;
+                            }
+                        }
+                        if (hay_error) break ;
+                    }
+
+                    if ( hay_error || (cont_puntos>1) || (string_de_entrada.charAt(0) == '.')
+                            || (string_de_entrada.charAt( string_de_entrada.length()-1 ) == '.') ) {
+                        JOptionPane.showMessageDialog(null, "Debes ingresar el número correctamente.");
+                    }   else {
+                        primer_número = Double.parseDouble(string_de_entrada);
+                        resultado = Math.sqrt(primer_número);
+                        resultadojTextField.setText(String.valueOf(resultado));
+                        string_de_historial = "\n" + "  " + "√" +
                                 String.valueOf(primer_número) + " = " + String.valueOf(resultado);
                         textarea_historial.insert(string_de_historial,0);
                         entradajTextField.setText("");

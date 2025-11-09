@@ -15,7 +15,8 @@ No esperar hasta el final para pasarlo todo.
 1.3 Tener una forma de detener. HECHO
 1.4 Que continúe en ciclo. HECHO
 *********** Detalle con los números fraccionarios y ese 00000000000002. Implementar BigDecimal
-***** Introducir números negativos.
+***** Introducir números negativos en la entrada.
+** Bug del botón igual al presionarlo solamente con una entrada.
 
 
 2. Agregar funciones matemáticas como seno, coseno, exponencial, elevar al cuadrado, raíz cuadrada, módulo, etc.
@@ -30,7 +31,6 @@ No esperar hasta el final para pasarlo todo.
 
 
 5. Poner imagen de fondo de pantalla. HECHO.
-*Poner una mejor. Ajustada a 550 o 600 píxeles cuadrados.
 
 
 6. Tal vez nueva pestaña donde muestre otras opciones.

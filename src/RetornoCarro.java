@@ -16,7 +16,7 @@ public class RetornoCarro {
 
         int num[] = new int[10];
 
-        System.out.println(suma);
+        System.out.println();
 
         scanner.close();
     }
