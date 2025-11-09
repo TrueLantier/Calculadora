@@ -118,6 +118,8 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         button_cuadrado.addActionListener(this);
         add(button_cuadrado);
 
+
+
         button_reiniciar = new JButton("Reiniciar");
         button_reiniciar.setBounds(390,40,120,50);
         button_reiniciar.setBackground(new Color(0,0,0));
@@ -311,6 +313,41 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                 primer_número = Double.parseDouble(string_de_resultado);
                 resultado = primer_número * primer_número;
                 resultadojTextField.setText(String.valueOf(resultado));
+                string_de_historial = "\n" + "  " + String.valueOf(primer_número) + " * " +
+                        String.valueOf(primer_número) + " = " + String.valueOf(resultado);
+                textarea_historial.insert(string_de_historial,0);
+            }   else {
+                if (string_de_entrada.isEmpty()) {
+                    JOptionPane.showMessageDialog(null,"Debes ingresar un número.");
+                }   else {
+
+                    int cont_puntos = 0;
+                    for_div:    for ( int i = 0; i<string_de_entrada.length(); i++) {
+                        if (string_de_entrada.charAt(i) == '.') ++cont_puntos;
+                        for ( int j = 0; j< nums.length; j++) {
+                            if ( string_de_entrada.charAt(i) == nums[j] ) {
+                                hay_error = false;
+                                continue for_div;
+                            }   else {
+                                hay_error = true;
+                            }
+                        }
+                        if (hay_error) break ;
+                    }
+
+                    if ( hay_error || (cont_puntos>1) || (string_de_entrada.charAt(0) == '.')
+                            || (string_de_entrada.charAt( string_de_entrada.length()-1 ) == '.') ) {
+                        JOptionPane.showMessageDialog(null, "Debes ingresar el número correctamente.");
+                    }   else {
+                        primer_número = Double.parseDouble(string_de_entrada);
+                        resultado = primer_número * primer_número;
+                        resultadojTextField.setText(String.valueOf(resultado));
+                        string_de_historial = "\n" + "  " + String.valueOf(primer_número) + " * " +
+                                String.valueOf(primer_número) + " = " + String.valueOf(resultado);
+                        textarea_historial.insert(string_de_historial,0);
+                        entradajTextField.setText("");
+                    }
+                }
             }
         }
 
@@ -355,8 +392,8 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                             break;
                     }
 
-                    string_de_historial = "\n" + "  " + String.valueOf(primer_número) + operación +
-                            String.valueOf(segundo_número) + "=" + String.valueOf(resultado);
+                    string_de_historial = "\n" + "  " + String.valueOf(primer_número) + " " + operación +
+                            " " + String.valueOf(segundo_número) + " = " + String.valueOf(resultado);
                     resultadojTextField.setText(String.valueOf(resultado));
                     textarea_historial.insert(string_de_historial,0);
 
