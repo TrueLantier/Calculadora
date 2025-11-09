@@ -5,7 +5,7 @@ import java.awt.event.*;
 public class Elementos_Básicos extends JFrame implements ActionListener{
 
     private JButton button_suma, button_resta, button_multiplicación, button_división, button_reiniciar, button_igual,
-            button_salir, button_creador;
+            button_salir, button_creador, button_cuadrado, button_raíz, button_módulo;
     private JLabel valoresLabel, resultadoLabel, historialLabel, imagenLabel;
     private JTextField entradajTextField, resultadojTextField;
     private JTextArea textarea_historial;
@@ -28,8 +28,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                 "/home/angel/Documentos/ESCUELA/Calculadora/image_calculadora/16038106_spiral-2-red.jpg"
         ));
         fondo.setLayout(null);
-
-        //setLayout(null);
+        //setLayout(null); Porque tiene que quedar así?
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("CALCULADORA BÁSICA");
         getContentPane().setBackground(new Color(0,255,0));
@@ -110,6 +109,15 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         button_igual.addActionListener(this);
         add(button_igual);
 
+        //➋ √
+        button_cuadrado = new JButton("2");
+        button_cuadrado.setBounds(20,450, 50,50);
+        button_cuadrado.setBackground(new Color(0,0,0));
+        button_cuadrado.setFont(new Font("Andale Mono",1,20));
+        button_cuadrado.setForeground(new Color(255,255,255));
+        button_cuadrado.addActionListener(this);
+        add(button_cuadrado);
+
         button_reiniciar = new JButton("Reiniciar");
         button_reiniciar.setBounds(390,40,120,50);
         button_reiniciar.setBackground(new Color(0,0,0));
@@ -151,7 +159,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
 
     public void actionPerformed( ActionEvent evento){
 
-        string_de_entrada = entradajTextField.getText().trim();
+        string_de_entrada = entradajTextField.getText();
         string_de_resultado = resultadojTextField.getText();
 
         if (evento.getSource() == button_suma) {
@@ -295,6 +303,14 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                         operación = "/";
                     }
                 }
+            }
+        }
+
+        if (evento.getSource() == button_cuadrado) {
+            if ( !(string_de_resultado.isEmpty()) && string_de_entrada.isEmpty() ) {
+                primer_número = Double.parseDouble(string_de_resultado);
+                resultado = primer_número * primer_número;
+                resultadojTextField.setText(String.valueOf(resultado));
             }
         }
 
