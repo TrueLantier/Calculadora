@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Elementos_Básicos extends JFrame implements ActionListener{
 
@@ -332,12 +334,12 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                 }   else {
 
                     int cont_puntos = 0;
-                    for_suma:    for ( int i = 0; i<string_de_entrada.length(); i++) {
+                    for_mod:    for ( int i = 0; i<string_de_entrada.length(); i++) {
                         if (string_de_entrada.charAt(i) == '.') ++cont_puntos;
                         for ( int j = 0; j< nums.length; j++) {
                             if ( string_de_entrada.charAt(i) == nums[j] ) {
                                 hay_error = false;
-                                continue for_suma;
+                                continue for_mod;
                             }   else {
                                 hay_error = true;
                             }
@@ -441,6 +443,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                                 String.valueOf(primer_número) + " = " + String.valueOf(resultado);
                         textarea_historial.insert(string_de_historial,0);
                         entradajTextField.setText("");
+                        // Números negativos.
                     }
                 }
             }
@@ -448,7 +451,8 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
 
         if (evento.getSource() == button_igual) {
             if (string_de_entrada.isEmpty() || (operación == "") ){
-                JOptionPane.showMessageDialog(null, "Debes ingresar un número");
+                JOptionPane.showMessageDialog(null, "Debes ingresar un número" +
+                        " u operación");
             }   else {
 
                 int cont_puntos = 0;
@@ -471,31 +475,53 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                 }   else {
                     segundo_número = Double.parseDouble(string_de_entrada);
                     entradajTextField.setText("");
+                    BigDecimal bd1 = new BigDecimal(String.valueOf(primer_número));
+                    BigDecimal bd2 = new BigDecimal(String.valueOf(segundo_número));
 
                     switch (operación) {
                         case "+":
-                            resultado = primer_número + segundo_número;
+                            resultado = bd1.add(bd2).doubleValue();
                             break;
                         case "-":
-                            resultado = primer_número - segundo_número;
+                            resultado = bd1.subtract(bd2).doubleValue();
                             break;
                         case "*":
-                            resultado = primer_número * segundo_número;
+                            resultado = bd1.multiply(bd2).doubleValue();
                             break;
                         case "/":
-                            resultado = primer_número / segundo_número;
+                            if ( segundo_número == 0) {
+                                JOptionPane.showMessageDialog(null, "No está definida " +
+                                        "la división por cero.");
+                                hay_error = true;
+                            }   else {
+                                resultado = bd1.divide(bd2,10, RoundingMode.HALF_UP).doubleValue();
+                            }
                             break;
                         case "%":
-                            resultado = primer_número % segundo_número;
+                            if ( ((int) primer_número < primer_número) || ((int) segundo_número < segundo_número) ) {
+                                JOptionPane.showMessageDialog(null,"La operación de módulo" +
+                                        " solo trabaja con enteros.");
+                                hay_error = true;
+                            }   else {
+                                resultado = primer_número % segundo_número;
+                            }
                             break;
                     }
 
-                    string_de_historial = "\n" + "  " + String.valueOf(primer_número) + " " + operación +
-                            " " + String.valueOf(segundo_número) + " = " + String.valueOf(resultado);
-                    resultadojTextField.setText(String.valueOf(resultado));
-                    textarea_historial.insert(string_de_historial,0);
-                    operación = "";
-
+                    if ( hay_error ) {
+                        primer_número = 0;
+                        segundo_número = 0;
+                        resultado = 0;
+                        operación = "";
+                        entradajTextField.setText("");
+                        resultadojTextField.setText("");
+                    }   else {
+                        string_de_historial = "\n" + "  " + String.valueOf(primer_número) + " " + operación +
+                                " " + String.valueOf(segundo_número) + " = " + String.valueOf(resultado);
+                        resultadojTextField.setText(String.valueOf(resultado));
+                        textarea_historial.insert(string_de_historial,0);
+                        operación = "";
+                    }
                 }
             }
         }
@@ -504,9 +530,9 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
             primer_número = 0;
             segundo_número = 0;
             resultado = 0;
+            operación = "";
             entradajTextField.setText("");
             resultadojTextField.setText("");
-            //textarea_historial.setText("");
         }
         if (evento.getSource() == button_salir) {
             System.exit(0);

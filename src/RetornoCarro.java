@@ -5,14 +5,10 @@ public class RetornoCarro {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        BigDecimal a = new BigDecimal("1.1");
-        BigDecimal b = new BigDecimal("1.1");
-        BigDecimal c = new BigDecimal(1.1);
-
-
-        BigDecimal suma = a.add(b);
-
-
+       double a = 2.7;
+       if ( (int) a < a ) {
+           System.out.println("Funciona");
+       }
 
         int num[] = new int[10];
 
