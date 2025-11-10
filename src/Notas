@@ -16,10 +16,10 @@ No esperar hasta el final para pasarlo todo.
 1.4 Que continúe en ciclo. HECHO
 *********** Detalle con los números fraccionarios y ese 00000000000002. Implementar BigDecimal
 ***** Introducir números negativos en la entrada.
-** Bug del botón igual al presionarlo solamente con una entrada.
+** Bug del botón igual al presionarlo solamente con una entrada. HAECHIO
 
 
-2. Agregar funciones matemáticas como seno, coseno, exponencial, elevar al cuadrado, raíz cuadrada, módulo, etc.
+2. Agregar funciones matemáticas como elevar al cuadrado, raíz cuadrada, módulo, etc.
 
 
 3. Se debe buscar cómo hacer el empaquetado de la aplicación.

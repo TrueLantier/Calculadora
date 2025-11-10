@@ -130,7 +130,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         button_módulo.setBackground(new Color(0,0,0));
         button_módulo.setFont(new Font("Andale Mono",1,18));
         button_módulo.setForeground(new Color(255,255,255));
-        //button_módulo.addActionListener(this);
+        button_módulo.addActionListener(this);
         add(button_módulo);
 
         button_reiniciar = new JButton("Reiniciar");
@@ -321,6 +321,42 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
             }
         }
 
+        if (evento.getSource() == button_módulo) {
+            if ( !(string_de_resultado.isEmpty()) && string_de_entrada.isEmpty() ) {
+                primer_número = Double.parseDouble(string_de_resultado);
+                resultadojTextField.setText("");
+                operación = "%";
+            }   else {
+                if (string_de_entrada.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Debes ingresar un número");
+                }   else {
+
+                    int cont_puntos = 0;
+                    for_suma:    for ( int i = 0; i<string_de_entrada.length(); i++) {
+                        if (string_de_entrada.charAt(i) == '.') ++cont_puntos;
+                        for ( int j = 0; j< nums.length; j++) {
+                            if ( string_de_entrada.charAt(i) == nums[j] ) {
+                                hay_error = false;
+                                continue for_suma;
+                            }   else {
+                                hay_error = true;
+                            }
+                        }
+                        if (hay_error) break ;
+                    }
+
+                    if ( hay_error || (cont_puntos>1) || (string_de_entrada.charAt(0) == '.')
+                            || (string_de_entrada.charAt( string_de_entrada.length()-1 ) == '.') ) {
+                        JOptionPane.showMessageDialog(null, "Debes ingresar el número correctamente.");
+                    }   else {
+                        primer_número = Double.parseDouble(string_de_entrada);
+                        entradajTextField.setText("");
+                        operación = "%";
+                    }
+                }
+            }
+        }
+
         if (evento.getSource() == button_cuadrado) {
             if ( !(string_de_resultado.isEmpty()) && string_de_entrada.isEmpty() ) {
                 primer_número = Double.parseDouble(string_de_resultado);
@@ -411,7 +447,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         }
 
         if (evento.getSource() == button_igual) {
-            if (string_de_entrada.isEmpty()){
+            if (string_de_entrada.isEmpty() || (operación == "") ){
                 JOptionPane.showMessageDialog(null, "Debes ingresar un número");
             }   else {
 
@@ -449,12 +485,16 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                         case "/":
                             resultado = primer_número / segundo_número;
                             break;
+                        case "%":
+                            resultado = primer_número % segundo_número;
+                            break;
                     }
 
                     string_de_historial = "\n" + "  " + String.valueOf(primer_número) + " " + operación +
                             " " + String.valueOf(segundo_número) + " = " + String.valueOf(resultado);
                     resultadojTextField.setText(String.valueOf(resultado));
                     textarea_historial.insert(string_de_historial,0);
+                    operación = "";
 
                 }
             }
