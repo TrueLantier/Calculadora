@@ -18,6 +18,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
     String string_de_historial = "";
     double primer_número, segundo_número;
     double resultado = 0;
+    double acumular = 0;
     String operación = "";
     char[] nums = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.'};
     char[] caracteres = { '+', '-', '*', '/'};
@@ -205,7 +206,8 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                     }
 
                     if ( hay_error || (cont_puntos>1) || (string_de_entrada.charAt(0) == '.')
-                            || (string_de_entrada.charAt( string_de_entrada.length()-1 ) == '.') ) {
+                            || (string_de_entrada.charAt( string_de_entrada.length()-1 ) == '.') ||
+                            ( (string_de_entrada.charAt(0) == '-') && (string_de_entrada.charAt(1) == '.') ) ) {
                         JOptionPane.showMessageDialog(null, "Debes ingresar el número correctamente.");
                     }   else {
                         primer_número = Double.parseDouble(string_de_entrada);
@@ -230,7 +232,8 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                     for_resta:    for ( int i = 0; i<string_de_entrada.length(); i++) {
                         if (string_de_entrada.charAt(i) == '.') ++cont_puntos;
                         for ( int j = 0; j< nums.length; j++) {
-                            if ( string_de_entrada.charAt(i) == nums[j] ) {
+                            if ( string_de_entrada.charAt(i) == nums[j] ||
+                                    string_de_entrada.charAt(0) == '-' ) {
                                 hay_error = false;
                                 continue for_resta;
                             }   else {
@@ -241,7 +244,8 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                     }
 
                     if ( hay_error || (cont_puntos>1) || (string_de_entrada.charAt(0) == '.')
-                            || (string_de_entrada.charAt( string_de_entrada.length()-1 ) == '.') ) {
+                            || (string_de_entrada.charAt( string_de_entrada.length()-1 ) == '.') ||
+                            ( (string_de_entrada.charAt(0) == '-') && (string_de_entrada.charAt(1) == '.') ) ) {
                         JOptionPane.showMessageDialog(null, "Debes ingresar el número correctamente.");
                     }   else {
                         primer_número = Double.parseDouble(string_de_entrada);
@@ -266,7 +270,8 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                     for_mult:    for ( int i = 0; i<string_de_entrada.length(); i++) {
                         if (string_de_entrada.charAt(i) == '.') ++cont_puntos;
                         for ( int j = 0; j< nums.length; j++) {
-                            if ( string_de_entrada.charAt(i) == nums[j] ) {
+                            if ( string_de_entrada.charAt(i) == nums[j] ||
+                                    string_de_entrada.charAt(0) == '-' ) {
                                 hay_error = false;
                                 continue for_mult;
                             }   else {
@@ -277,7 +282,8 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                     }
 
                     if ( hay_error || (cont_puntos>1) || (string_de_entrada.charAt(0) == '.')
-                            || (string_de_entrada.charAt( string_de_entrada.length()-1 ) == '.') ) {
+                            || (string_de_entrada.charAt( string_de_entrada.length()-1 ) == '.') ||
+                            ( (string_de_entrada.charAt(0) == '-') && (string_de_entrada.charAt(1) == '.') ) ) {
                         JOptionPane.showMessageDialog(null, "Debes ingresar el número correctamente.");
                     }   else {
                         primer_número = Double.parseDouble(string_de_entrada);
@@ -302,7 +308,8 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                     for_div:    for ( int i = 0; i<string_de_entrada.length(); i++) {
                         if (string_de_entrada.charAt(i) == '.') ++cont_puntos;
                         for ( int j = 0; j< nums.length; j++) {
-                            if ( string_de_entrada.charAt(i) == nums[j] ) {
+                            if ( string_de_entrada.charAt(i) == nums[j] ||
+                                    string_de_entrada.charAt(0) == '-' ) {
                                 hay_error = false;
                                 continue for_div;
                             }   else {
@@ -313,7 +320,8 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                     }
 
                     if ( hay_error || (cont_puntos>1) || (string_de_entrada.charAt(0) == '.')
-                            || (string_de_entrada.charAt( string_de_entrada.length()-1 ) == '.') ) {
+                            || (string_de_entrada.charAt( string_de_entrada.length()-1 ) == '.') ||
+                            ( (string_de_entrada.charAt(0) == '-') && (string_de_entrada.charAt(1) == '.') ) ) {
                         JOptionPane.showMessageDialog(null, "Debes ingresar el número correctamente.");
                     }   else {
                         primer_número = Double.parseDouble(string_de_entrada);
@@ -338,7 +346,8 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                     for_mod:    for ( int i = 0; i<string_de_entrada.length(); i++) {
                         if (string_de_entrada.charAt(i) == '.') ++cont_puntos;
                         for ( int j = 0; j< nums.length; j++) {
-                            if ( string_de_entrada.charAt(i) == nums[j] ) {
+                            if ( string_de_entrada.charAt(i) == nums[j] ||
+                                    string_de_entrada.charAt(0) == '-' ) {
                                 hay_error = false;
                                 continue for_mod;
                             }   else {
@@ -349,7 +358,8 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                     }
 
                     if ( hay_error || (cont_puntos>1) || (string_de_entrada.charAt(0) == '.')
-                            || (string_de_entrada.charAt( string_de_entrada.length()-1 ) == '.') ) {
+                            || (string_de_entrada.charAt( string_de_entrada.length()-1 ) == '.') ||
+                            ( (string_de_entrada.charAt(0) == '-') && (string_de_entrada.charAt(1) == '.') ) ) {
                         JOptionPane.showMessageDialog(null, "Debes ingresar el número correctamente.");
                     }   else {
                         primer_número = Double.parseDouble(string_de_entrada);
@@ -465,7 +475,8 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                 for_igual:    for ( int i = 0; i<string_de_entrada.length(); i++) {
                     if (string_de_entrada.charAt(i) == '.') ++cont_puntos;
                     for ( int j = 0; j< nums.length; j++) {
-                        if ( string_de_entrada.charAt(i) == nums[j] ) {
+                        if ( string_de_entrada.charAt(i) == nums[j] ||
+                                string_de_entrada.charAt(0) == '-' ) {
                             hay_error = false;
                             continue for_igual;
                         }   else {
@@ -476,7 +487,8 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                 }
 
                 if ( hay_error || (cont_puntos>1) || (string_de_entrada.charAt(0) == '.')
-                        || (string_de_entrada.charAt( string_de_entrada.length()-1 ) == '.') ) {
+                        || (string_de_entrada.charAt( string_de_entrada.length()-1 ) == '.') ||
+                        ( (string_de_entrada.charAt(0) == '-') && (string_de_entrada.charAt(1) == '.') ) ) {
                     JOptionPane.showMessageDialog(null, "Debes ingresar el número correctamente.");
                 }   else {
                     segundo_número = Double.parseDouble(string_de_entrada);

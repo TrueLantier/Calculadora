@@ -17,7 +17,7 @@ No esperar hasta el final para pasarlo todo.
 
 DETALLES
 Detalle con los números fraccionarios y ese 00000000000002. Implementar BigDecimal. HECHO
-Introducir números negativos en la entrada.
+Introducir números negativos en la entrada. HECHO
 Raíces y negativos.
 Bug del botón igual al presionarlo solamente con una entrada. HECHO
 Poner varias sumas seguidas.
@@ -27,7 +27,7 @@ Poner varias sumas seguidas.
 3. Se debe buscar cómo hacer el empaquetado de la aplicación.
 
 4. Hacer historial de operaciones. HECHO
-*Cuando son muchos no se pone desde el último.
+Cuando son muchos no se pone desde el último. HECHO
 
 5. Poner imagen de fondo de pantalla. HECHO.
 
