@@ -23,6 +23,7 @@ Bug del botón igual al presionarlo solamente con una entrada. HECHO
 Poner varias sumas seguidas.
 
 2. Agregar funciones matemáticas como elevar al cuadrado, raíz cuadrada, módulo. HECHO
+Aquí el signo del módulo depende del divisor, cosa de java.
 
 3. Se debe buscar cómo hacer el empaquetado de la aplicación.
 
