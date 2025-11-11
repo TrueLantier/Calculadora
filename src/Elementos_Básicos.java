@@ -389,7 +389,8 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                     for_cuadrado:    for ( int i = 0; i<string_de_entrada.length(); i++) {
                         if (string_de_entrada.charAt(i) == '.') ++cont_puntos;
                         for ( int j = 0; j< nums.length; j++) {
-                            if ( string_de_entrada.charAt(i) == nums[j] ) {
+                            if ( string_de_entrada.charAt(i) == nums[j] ||
+                                    string_de_entrada.charAt(0) == '-' ) {
                                 hay_error = false;
                                 continue for_cuadrado;
                             }   else {
