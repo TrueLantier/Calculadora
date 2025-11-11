@@ -193,7 +193,8 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                     for_suma:    for ( int i = 0; i<string_de_entrada.length(); i++) {
                         if (string_de_entrada.charAt(i) == '.') ++cont_puntos;
                         for ( int j = 0; j< nums.length; j++) {
-                            if ( string_de_entrada.charAt(i) == nums[j] ) {
+                            if ( (string_de_entrada.charAt(i) == nums[j]) ||
+                                    string_de_entrada.charAt(0) == '-' ) {
                                 hay_error = false;
                                 continue for_suma;
                             }   else {
@@ -362,11 +363,13 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         if (evento.getSource() == button_cuadrado) {
             if ( !(string_de_resultado.isEmpty()) && string_de_entrada.isEmpty() ) {
                 primer_número = Double.parseDouble(string_de_resultado);
-                resultado = primer_número * primer_número;
+                BigDecimal bd1 = new BigDecimal(String.valueOf(primer_número));
+                resultado = bd1.multiply(bd1).doubleValue();
                 resultadojTextField.setText(String.valueOf(resultado));
                 string_de_historial = "\n" + "  " + String.valueOf(primer_número) + " * " +
                         String.valueOf(primer_número) + " = " + String.valueOf(resultado);
                 textarea_historial.insert(string_de_historial,0);
+                textarea_historial.setCaretPosition(0);
             }   else {
                 if (string_de_entrada.isEmpty()) {
                     JOptionPane.showMessageDialog(null,"Debes ingresar un número.");
@@ -391,11 +394,13 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                         JOptionPane.showMessageDialog(null, "Debes ingresar el número correctamente.");
                     }   else {
                         primer_número = Double.parseDouble(string_de_entrada);
-                        resultado = primer_número * primer_número;
+                        BigDecimal bd1 = new BigDecimal(String.valueOf(primer_número));
+                        resultado = bd1.multiply(bd1).doubleValue();
                         resultadojTextField.setText(String.valueOf(resultado));
                         string_de_historial = "\n" + "  " + String.valueOf(primer_número) + " * " +
                                 String.valueOf(primer_número) + " = " + String.valueOf(resultado);
                         textarea_historial.insert(string_de_historial,0);
+                        textarea_historial.setCaretPosition(0);
                         entradajTextField.setText("");
                     }
                 }
@@ -410,6 +415,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                 string_de_historial = "\n" + "  " + "√" +
                         String.valueOf(primer_número) + " = " + String.valueOf(resultado);
                 textarea_historial.insert(string_de_historial,0);
+                textarea_historial.setCaretPosition(0);
             }   else {
                 if (string_de_entrada.isEmpty()) {
                     JOptionPane.showMessageDialog(null,"Debes ingresar un número.");
@@ -442,8 +448,8 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                         string_de_historial = "\n" + "  " + "√" +
                                 String.valueOf(primer_número) + " = " + String.valueOf(resultado);
                         textarea_historial.insert(string_de_historial,0);
+                        textarea_historial.setCaretPosition(0);
                         entradajTextField.setText("");
-                        // Números negativos.
                     }
                 }
             }
@@ -456,12 +462,12 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
             }   else {
 
                 int cont_puntos = 0;
-                for_suma:    for ( int i = 0; i<string_de_entrada.length(); i++) {
+                for_igual:    for ( int i = 0; i<string_de_entrada.length(); i++) {
                     if (string_de_entrada.charAt(i) == '.') ++cont_puntos;
                     for ( int j = 0; j< nums.length; j++) {
                         if ( string_de_entrada.charAt(i) == nums[j] ) {
                             hay_error = false;
-                            continue for_suma;
+                            continue for_igual;
                         }   else {
                             hay_error = true;
                         }
@@ -520,6 +526,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                                 " " + String.valueOf(segundo_número) + " = " + String.valueOf(resultado);
                         resultadojTextField.setText(String.valueOf(resultado));
                         textarea_historial.insert(string_de_historial,0);
+                        textarea_historial.setCaretPosition(0);
                         operación = "";
                     }
                 }
