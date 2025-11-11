@@ -401,7 +401,8 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                     }
 
                     if ( hay_error || (cont_puntos>1) || (string_de_entrada.charAt(0) == '.')
-                            || (string_de_entrada.charAt( string_de_entrada.length()-1 ) == '.') ) {
+                            || (string_de_entrada.charAt( string_de_entrada.length()-1 ) == '.') ||
+                            ( (string_de_entrada.charAt(0) == '-') && (string_de_entrada.charAt(1) == '.') ) ) {
                         JOptionPane.showMessageDialog(null, "Debes ingresar el número correctamente.");
                     }   else {
                         primer_número = Double.parseDouble(string_de_entrada);
