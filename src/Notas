@@ -25,7 +25,7 @@ Poner varias sumas seguidas.
 2. Agregar funciones matemáticas como elevar al cuadrado, raíz cuadrada, módulo. HECHO
 Aquí el signo del módulo depende del divisor, cosa de java.
 
-3. Se debe buscar cómo hacer el empaquetado de la aplicación.
+***** 3. Se debe buscar cómo hacer el empaquetado de la aplicación.
 
 4. Hacer historial de operaciones. HECHO
 Cuando son muchos no se pone desde el último. HECHO
