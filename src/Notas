@@ -22,7 +22,7 @@ Detalle con los números fraccionarios y ese 00000000000002. Implementar BigDeci
 Introducir números negativos en la entrada. HECHO
 Raíces y negativos. HECHO
 Bug del botón igual al presionarlo solamente con una entrada. HECHO
-Poner varias sumas u operaciones seguidas(del mismo tipo).
+Poner varias operaciones seguidas(del mismo tipo).
 
 2. Agregar funciones matemáticas como elevar al cuadrado, raíz cuadrada, módulo. HECHO
 -Aquí el signo del módulo depende del divisor, cosa de java.
