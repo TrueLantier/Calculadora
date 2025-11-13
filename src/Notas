@@ -20,7 +20,7 @@ Notas: Creación del .jar con build para el empaquetado posterior en un .desktop
 DETALLES
 Detalle con los números fraccionarios y ese 00000000000002. Implementar BigDecimal. HECHO
 Introducir números negativos en la entrada. HECHO
-Raíces y negativos.
+Raíces y negativos. HECHO
 Bug del botón igual al presionarlo solamente con una entrada. HECHO
 Poner varias sumas seguidas.
 

@@ -425,6 +425,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                 if (primer_número<0) {
                     JOptionPane.showMessageDialog(null, "Aquí no están definidas " +
                             "las operaciones con complejos.");
+                    resultadojTextField.setText("");
                 }   else {
                     resultado = Math.sqrt(primer_número);
                     resultadojTextField.setText(String.valueOf(resultado));
@@ -462,6 +463,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                         if (primer_número<0) {
                             JOptionPane.showMessageDialog(null, "Aquí no están definidas " +
                                     "las operaciones con complejos.");
+                            entradajTextField.setText("");
                         }   else {
                             resultado = Math.sqrt(primer_número);
                             resultadojTextField.setText(String.valueOf(resultado));
