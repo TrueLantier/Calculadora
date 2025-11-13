@@ -1,6 +1,8 @@
 Pasos: Probar en Auxiliar_calculadora y luego pasar a Elementos_Básicos. Hacerlo poco a poco.
 No esperar hasta el final para pasarlo todo.
 
+Notas: Creación del .jar con build para el empaquetado posterior en un .desktop.
+
 0. Hacer la calculadora sin interfaz gráfica. Luego adaptar.
 0.1 Debe incluir las operaciones básicas. HECHO 🗹
 0.2 Detectar errores de entrada. HECHO
@@ -23,21 +25,20 @@ Bug del botón igual al presionarlo solamente con una entrada. HECHO
 Poner varias sumas seguidas.
 
 2. Agregar funciones matemáticas como elevar al cuadrado, raíz cuadrada, módulo. HECHO
-Aquí el signo del módulo depende del divisor, cosa de java.
+-Aquí el signo del módulo depende del divisor, cosa de java.
 
-***** 3. Se debe buscar cómo hacer el empaquetado de la aplicación.
+3. Se debe buscar cómo hacer el empaquetado de la aplicación. HECHO
 
 4. Hacer historial de operaciones. HECHO
 Cuando son muchos no se pone desde el último. HECHO
 
 5. Poner imagen de fondo de pantalla. HECHO.
 
-6. Tal vez nueva pestaña donde muestre otras opciones.
-Hacer que se puedan copiar los elementos y que pueda pegarse algo. Responder al click.
-Botón de ir hacia atrás.
-
-
 ***
 
 
 X. Dejar el proyecto hasta este punto. Para retomar en el futuro.
+
+6. Tal vez nueva pestaña donde muestre otras opciones.
+Hacer que se puedan copiar los elementos y que pueda pegarse algo. Responder al click.
+Botón de ir hacia atrás.

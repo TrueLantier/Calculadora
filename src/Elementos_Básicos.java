@@ -422,25 +422,28 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         if (evento.getSource() == button_raíz) {
             if ( !(string_de_resultado.isEmpty()) && string_de_entrada.isEmpty() ) {
                 primer_número = Double.parseDouble(string_de_resultado);
-                resultado = Math.sqrt(primer_número);
-                resultadojTextField.setText(String.valueOf(resultado));
-                string_de_historial = "\n" + "  " + "√" +
-                        String.valueOf(primer_número) + " = " + String.valueOf(resultado);
-                textarea_historial.insert(string_de_historial,0);
-                textarea_historial.setCaretPosition(0);
+                if (primer_número<0) {
+                    JOptionPane.showMessageDialog(null, "Aquí no están definidas " +
+                            "las operaciones con complejos.");
+                }   else {
+                    resultado = Math.sqrt(primer_número);
+                    resultadojTextField.setText(String.valueOf(resultado));
+                    string_de_historial = "\n" + "  " + "√" +
+                            String.valueOf(primer_número) + " = " + String.valueOf(resultado);
+                    textarea_historial.insert(string_de_historial,0);
+                    textarea_historial.setCaretPosition(0);
+                }
             }   else {
                 if (string_de_entrada.isEmpty()) {
                     JOptionPane.showMessageDialog(null,"Debes ingresar un número.");
                 }   else {
 
                     int cont_puntos = 0;
-                    /* Aquí no se debe permitir ingresos negativos.
-                    Especificar que no están permitidas las operaciones con complejos.
-                    */
                     for_raíz:    for ( int i = 0; i<string_de_entrada.length(); i++) {
                         if (string_de_entrada.charAt(i) == '.') ++cont_puntos;
                         for ( int j = 0; j< nums.length; j++) {
-                            if ( string_de_entrada.charAt(i) == nums[j] ) {
+                            if ( string_de_entrada.charAt(i) == nums[j] ||
+                                    string_de_entrada.charAt(0) == '-' ) {
                                 hay_error = false;
                                 continue for_raíz;
                             }   else {
@@ -451,17 +454,23 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                     }
 
                     if ( hay_error || (cont_puntos>1) || (string_de_entrada.charAt(0) == '.')
-                            || (string_de_entrada.charAt( string_de_entrada.length()-1 ) == '.') ) {
+                            || (string_de_entrada.charAt( string_de_entrada.length()-1 ) == '.') ||
+                            ( (string_de_entrada.charAt(0) == '-') && (string_de_entrada.charAt(1) == '.') ) ) {
                         JOptionPane.showMessageDialog(null, "Debes ingresar el número correctamente.");
                     }   else {
                         primer_número = Double.parseDouble(string_de_entrada);
-                        resultado = Math.sqrt(primer_número);
-                        resultadojTextField.setText(String.valueOf(resultado));
-                        string_de_historial = "\n" + "  " + "√" +
-                                String.valueOf(primer_número) + " = " + String.valueOf(resultado);
-                        textarea_historial.insert(string_de_historial,0);
-                        textarea_historial.setCaretPosition(0);
-                        entradajTextField.setText("");
+                        if (primer_número<0) {
+                            JOptionPane.showMessageDialog(null, "Aquí no están definidas " +
+                                    "las operaciones con complejos.");
+                        }   else {
+                            resultado = Math.sqrt(primer_número);
+                            resultadojTextField.setText(String.valueOf(resultado));
+                            string_de_historial = "\n" + "  " + "√" +
+                                    String.valueOf(primer_número) + " = " + String.valueOf(resultado);
+                            textarea_historial.insert(string_de_historial,0);
+                            textarea_historial.setCaretPosition(0);
+                            entradajTextField.setText("");
+                        }
                     }
                 }
             }
