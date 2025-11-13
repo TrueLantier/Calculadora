@@ -18,7 +18,6 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
     String string_de_historial = "";
     double primer_número, segundo_número;
     double resultado = 0;
-    double acumular = 0;
     String operación = "";
     char[] nums = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.'};
     char[] caracteres = { '+', '-', '*', '/'};
@@ -562,7 +561,6 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
             primer_número = 0;
             segundo_número = 0;
             resultado = 0;
-            acumular = 0;
             operación = "";
             entradajTextField.setText("");
             resultadojTextField.setText("");
