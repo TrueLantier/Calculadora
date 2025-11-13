@@ -20,7 +20,6 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
     double resultado = 0;
     String operación = "";
     char[] nums = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.'};
-    char[] caracteres = { '+', '-', '*', '/'};
     boolean hay_error = true;
 
     public Elementos_Básicos() {
@@ -30,7 +29,6 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
                 "/home/angel/Documentos/ESCUELA/Calculadora/image_calculadora/16038106_spiral-2-red.jpg"
         ));
         fondo.setLayout(null);
-        //setLayout(null); Porque tiene que quedar así?
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("CALCULADORA BÁSICA");
         getContentPane().setBackground(new Color(0,255,0));
@@ -73,9 +71,6 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         button_suma.setBackground(new Color(0,0,0));
         button_suma.setFont(new Font("Andale Mono", 1, 20));
         button_suma.setForeground(new Color(255,255,255));
-        //button_suma.setOpaque(false); Esto es para volverlo transparente.
-        //button_suma.setContentAreaFilled(false);
-        //button_suma.setBorderPainted(false); Para bordes.
         button_suma.addActionListener(this);
         add(button_suma);
 
@@ -162,15 +157,12 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
         textarea_historial = new JTextArea();
         textarea_historial.setEditable(false);
         textarea_historial.setOpaque(false); // Esto funciona?
-        //textarea_historial.setBackground(new Color(224,224,224));
         textarea_historial.setFont(new Font("Andale Mono",1,13 ));
         textarea_historial.setForeground(new Color(255,0,0));
-        //textarea_historial.setText("\n Este es el historial.");
         scroll1 = new JScrollPane(textarea_historial);
         scroll1.setBounds(20,335,350,90);
         add(scroll1);
 
-        //fondo.add(button_creador); Debería poner esto?
         add(fondo);
     }
 
