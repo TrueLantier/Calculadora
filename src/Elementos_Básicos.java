@@ -562,6 +562,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
             primer_número = 0;
             segundo_número = 0;
             resultado = 0;
+            acumular = 0;
             operación = "";
             entradajTextField.setText("");
             resultadojTextField.setText("");
