@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import com.formdev.flatlaf.*;
 
 public class Elementos_Básicos extends JFrame implements ActionListener{
 
@@ -26,9 +27,7 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
 
         JLabel fondo = new JLabel();
         fondo.setIcon(new ImageIcon(
-                "/home/angel/Documentos/ESCUELA/Calculadora/image_calculadora/16038106_spiral-2-red.jpg"
-        ));
-        fondo.setLayout(null);
+                "/home/angel/Documentos/ESCUELA/Calculadora/image_calculadora/16038106_spiral-2-red.jpg"));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("CALCULADORA BÁSICA");
         getContentPane().setBackground(new Color(0,255,0));
@@ -156,7 +155,6 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
 
         textarea_historial = new JTextArea();
         textarea_historial.setEditable(false);
-        textarea_historial.setOpaque(false); // Esto funciona?
         textarea_historial.setFont(new Font("Andale Mono",1,13 ));
         textarea_historial.setForeground(new Color(255,0,0));
         scroll1 = new JScrollPane(textarea_historial);
@@ -566,7 +564,13 @@ public class Elementos_Básicos extends JFrame implements ActionListener{
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
+        //UIManager.setLookAndFeel(new FlatDarkLaf());
+        //UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); // Del sistema operativo
+        UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+        //UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel"); // Por defecto de Java
+        //UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel"); // Feo
+
         Elementos_Básicos elementos_básicos = new Elementos_Básicos();
         elementos_básicos.setBounds(0, 0, 600, 600);
         elementos_básicos.setVisible(true);
